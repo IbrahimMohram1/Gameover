@@ -31,6 +31,7 @@ export class Games {
       options,
     );
     const response = await api.json();
+    // console.log(response);
     setTimeout(() => {
       document.querySelector(".loading").classList.add("d-none");
     }, 250);
@@ -61,9 +62,15 @@ export class Games {
     document.querySelectorAll(".card").forEach((item) => {
       item.addEventListener("mouseenter", function (e) {
         const video = e.target.querySelector("video");
-        video.classList.remove("d-none");
-        video.muted = true;
-        video.play();
+        // console.log(video.duration);
+        if (video.duration !== NaN) {
+          video.classList.remove("d-none");
+          video.muted = true;
+          video.play();
+        } else {
+          video.pause();
+          console.log("error", error);
+        }
       });
     });
   }
@@ -71,9 +78,13 @@ export class Games {
     document.querySelectorAll(".card").forEach((item) => {
       item.addEventListener("mouseleave", function (e) {
         const video = e.target.querySelector("video");
-        video.classList.add("d-none");
-        video.muted = true;
-        video.pause();
+        if (video.duration !== NaN) {
+          video.classList.add("d-none");
+          video.muted = true;
+        } else {
+          video.pause();
+          console.log("error", error);
+        }
       });
     });
   }

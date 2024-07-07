@@ -58,7 +58,16 @@ export class Ui {
   displayDetailsGame(response) {
     let box = `
           <div class="col-md-4">
-       <img src="${response.thumbnail}" class="w-100" alt="image details" />
+      
+       
+           
+             <div class="card">
+              <img
+                src="${response.thumbnail}"
+                alt="" />
+            </div>
+            
+          </div>
     </div>
     <div class="col-md-8">
        <h3>Title: ${response.title}</h3>

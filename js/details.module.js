@@ -22,6 +22,7 @@ export class getDetails {
       options,
     );
     const response = await api.json();
+    // console.log(response);
     setTimeout(() => {
       document.querySelector(".loading").classList.add("d-none");
     }, 500);
